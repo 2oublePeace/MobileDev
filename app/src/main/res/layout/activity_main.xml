@@ -27,13 +27,13 @@
         android:layout_weight="0.25"/>
 
     <Button
-        android:id="@+id/wideButton"
+        android:id="@+id/addButton"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="2dp"
         android:layout_weight="1"
-        android:onClick="editTextChanged"
-        android:text="Button" />
+        android:onClick="addText"
+        android:text="@string/add_button" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -45,25 +45,28 @@
             android:id="@+id/button1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Button"
+            android:layout_margin="2dp"
             android:layout_weight="1"
-            android:layout_margin="2dp"/>
+            android:onClick="selectAll"
+            android:text="Button" />
 
         <Button
             android:id="@+id/button2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Button"
+            android:layout_margin="2dp"
             android:layout_weight="1"
-            android:layout_margin="2dp"/>
+            android:onClick="resetAll"
+            android:text="Button" />
 
         <Button
             android:id="@+id/button3"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Button"
+            android:layout_margin="2dp"
             android:layout_weight="1"
-            android:layout_margin="2dp"/>
+            android:onClick="printSelectedItems"
+            android:text="Button" />
 
     </LinearLayout>
 
