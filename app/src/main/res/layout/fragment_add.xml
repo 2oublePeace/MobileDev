@@ -6,63 +6,59 @@
     android:orientation="vertical"
     tools:context=".AddFragment">
 
+
     <TextView
         android:id="@+id/textViewName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/app_name" />
+        android:text="Имя" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/editTextName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName" />
 
-    <ListView
-        android:id="@+id/listView"
+    <TextView
+        android:id="@+id/textView2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="0.25"/>
+        android:layout_height="wrap_content"
+        android:text="Возраст" />
 
-    <Button
-        android:id="@+id/buttonAdd"
+    <EditText
+        android:id="@+id/editTextAge"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="2dp"
-        android:layout_weight="1"
-        android:text="@string/add_button" />
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number"
+        android:minHeight="48dp" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Checked" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:layout_weight="1">
-
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
         <Button
-            android:id="@+id/buttonSelectAll"
+            android:id="@+id/buttonAdd"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="2dp"
             android:layout_weight="1"
-            android:text="Button" />
+            android:text="@string/add_button" />
 
         <Button
-            android:id="@+id/buttonUnselectAll"
+            android:id="@+id/buttonBack"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="2dp"
             android:layout_weight="1"
-            android:text="Button" />
-
-        <Button
-            android:id="@+id/buttonToast"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="2dp"
-            android:layout_weight="1"
-            android:text="Button" />
-
+            android:text="Back" />
     </LinearLayout>
 
 </LinearLayout>

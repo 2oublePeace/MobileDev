@@ -1,71 +1,44 @@
 package com.emiryan.mobiledev;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentResultListener;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.SparseBooleanArray;
-import android.view.KeyEvent;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+
+    List<Student> listStudents;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-    }
 
-    @Override
-    protected void onDestroy(){
-        super.onDestroy();
-        System.out.println("onDestroy");
-    }
-    @Override
-    protected void onStop(){
-        super.onStop();
-        System.out.println("onStop");
-    }
-    @Override
-    protected void onStart(){
-        super.onStart();
-        System.out.println("onStart");
-    }
-    @Override
-    protected void onPause(){
-        super.onPause();
-        System.out.println("onPause");
-    }
-    @Override
-    protected void onResume(){
-        super.onResume();
-        System.out.println("onResume");
-    }
+        listStudents = ServiceLocator.getInstance().getListStudents();
 
-    @Override
-    protected void onRestart(){
-        super.onRestart();
-        System.out.println("onRestart");
+        getSupportFragmentManager().beginTransaction()
+                .setReorderingAllowed(true)
+                .add(R.id.fragmentContainerView, ListFragment.class, null)
+                .commit();
     }
 
     public void addText(View view) {
         getSupportFragmentManager().beginTransaction()
                 .setReorderingAllowed(true)
-                .add(R.id.fragmentContainerView, AddFragment.class, null)
+                .replace(R.id.fragmentContainerView, AddFragment.class, null)
                 .commit();
 
-        Intent i = getIntent();
-        String name = i.getStringExtra("NAME_KEY");
-        int year = i.getIntExtra("YEAR_KEY",0);
+        getSupportFragmentManager().setFragmentResultListener("studentKey", this, new FragmentResultListener() {
+            @Override
+            public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle bundle) {
+                Student student = (Student) bundle.getSerializable("studentKey");
+                listStudents.add(student);
+                ServiceLocator.getInstance().setListStudents(listStudents);
+            }
+        });
     }
 }

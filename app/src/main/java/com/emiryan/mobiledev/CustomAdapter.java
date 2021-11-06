@@ -31,7 +31,7 @@ public class CustomAdapter<T> extends ArrayAdapter<T> {
 
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        View view=inflater.inflate(this.resource, parent, false);
+        View view = inflater.inflate(this.resource, parent, false);
 
         ImageView imageView = (ImageView) view.findViewById(R.id.icon);
         TextView textView = (TextView) view.findViewById(R.id.text);
@@ -43,10 +43,14 @@ public class CustomAdapter<T> extends ArrayAdapter<T> {
         textView.setText(object.toString());
         textView.setTextSize(36);
 
-        if(position == parsedList.keyAt(position) && parsedList.get(position) == true) {
-            imageView.setImageResource(R.drawable.yes);
+        if(parsedList.size() > 0) {
+            if(position == parsedList.keyAt(position) && parsedList.get(position) == true) {
+                imageView.setImageResource(R.drawable.yes);
+            } else {
+                imageView.setImageResource(R.drawable.no);
+            }
         } else {
-            imageView.setImageResource(R.drawable.no);
+            imageView.setImageResource(R.drawable.yes);
         }
 
         return view;

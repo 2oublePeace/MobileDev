@@ -7,19 +7,44 @@
     tools:context=".MainActivity"
     android:orientation="vertical">
 
-
-    <Button
-        android:id="@+id/buttonAdd"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="addText"
-        android:text="Button" />
-
     <!-- res/layout/example_activity.xml -->
     <androidx.fragment.app.FragmentContainerView
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/fragmentContainerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_weight="0.1"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/buttonAdd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:layout_weight="1"
+            android:onClick="addText"
+            android:text="Button" />
+
+        <Button
+            android:id="@+id/buttonDelete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Button"
+            android:layout_margin="2dp"/>
+
+        <Button
+            android:id="@+id/buttonSearch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Button"
+            android:layout_margin="2dp"/>
+    </LinearLayout>
 
 </LinearLayout>
