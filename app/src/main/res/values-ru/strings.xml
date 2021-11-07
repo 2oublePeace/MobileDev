@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Мобильная разработка</string>
-    <string name="add_button">Добавить</string>
-    <string name="button1">Кнопка 1</string>
-    <string name="button2">Кнопка 2</string>
-    <string name="button3">Кнопка 3</string>
+    <string name="appName">Мобильная разработка</string>
+
+    <!-- Add fragment -->
+    <string name="addTextViewName">Имя</string>
+    <string name="addTextViewAge">Возраст</string>
+    <string name="addCheckBox">Отметить</string>
+    <string name="addButtonBack">Назад</string>
+    <string name="addButtonAdd">Добавить</string>
+
+    <!-- Main activity -->
+    <string name="mainButtonAdd">Добавить</string>
+    <string name="mainButtonDelete">Удалить</string>
+    <string name="mainButtonSearch">Поиск</string>
 </resources>

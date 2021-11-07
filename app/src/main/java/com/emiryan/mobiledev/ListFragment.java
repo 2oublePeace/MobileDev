@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment;
 public class ListFragment extends Fragment {
 
     ListView listView;
-    CustomAdapter<Student> customAdapter;
+    CustomAdapter customAdapter;
 
     public ListFragment() {
         super(R.layout.fragment_list);
@@ -28,8 +28,8 @@ public class ListFragment extends Fragment {
     }
 
     private void initialize(View view) {
-        listView = (ListView) view.findViewById(R.id.listView);
-        customAdapter = new CustomAdapter(view.getContext(), R.layout.item_list,
+        listView = view.findViewById(R.id.listView);
+        customAdapter = new CustomAdapter(view.getContext(), R.layout.list_item,
                 ServiceLocator.getInstance().getListStudents());
     }
 }

@@ -1,9 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">MobileDev</string>
-    <string name="add_button">Add</string>
-    <string name="button1">Button 1</string>
-    <string name="button2">Button 2</string>
-    <string name="button3">Button 3</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="appName">MobileDev</string>
+
+    <!-- Add fragment -->
+    <string name="addTextViewName">Name</string>
+    <string name="addTextViewAge">Age</string>
+    <string name="addCheckBox">Checked</string>
+    <string name="addButtonBack">Back</string>
+    <string name="addButtonAdd">Add</string>
+
+    <!-- Main activity -->
+    <string name="mainButtonAdd">Add</string>
+    <string name="mainButtonDelete">Delete</string>
+    <string name="mainButtonSearch">Search</string>
 </resources>

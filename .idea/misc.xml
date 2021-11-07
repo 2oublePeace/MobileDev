@@ -11,9 +11,13 @@
         <entry key="..\:/Projects/Java/MobileDev/app/src/main/res/layout/custom_list.xml" value="0.9" />
         <entry key="..\:/Projects/Java/MobileDev/app/src/main/res/layout/item_list.xml" value="0.67" />
         <entry key="..\:/Projects/Java/MobileDev/app/src/main/res/layout/list_item.xml" value="0.33" />
+        <entry key="app/src/main/res/layout-land/activity_main.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.15" />
-        <entry key="app/src/main/res/layout/fragment_add.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_add.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_list.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/item_list.xml" value="0.67" />
+        <entry key="app/src/main/res/layout/list_item.xml" value="0.67" />
+        <entry key="app/src/main/res/layout/test.xml" value="0.13697916666666668" />
       </map>
     </option>
   </component>

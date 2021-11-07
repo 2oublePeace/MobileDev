@@ -6,28 +6,27 @@
     android:orientation="vertical"
     tools:context=".AddFragment">
 
-
     <TextView
-        android:id="@+id/textViewName"
+        android:id="@+id/addTextViewName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Имя" />
+        android:text="@string/addTextViewName" />
 
     <EditText
-        android:id="@+id/editTextName"
+        android:id="@+id/addEditTextName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textViewAge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Возраст" />
+        android:text="@string/addTextViewAge" />
 
     <EditText
-        android:id="@+id/editTextAge"
+        android:id="@+id/addEditTextAge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -35,30 +34,30 @@
         android:minHeight="48dp" />
 
     <CheckBox
-        android:id="@+id/checkBox"
+        android:id="@+id/addCheckBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Checked" />
+        android:text="@string/addCheckBox" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <Button
-            android:id="@+id/buttonAdd"
+            android:id="@+id/addButtonAdd"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="2dp"
             android:layout_weight="1"
-            android:text="@string/add_button" />
+            android:text="@string/addButtonAdd" />
 
         <Button
-            android:id="@+id/buttonBack"
+            android:id="@+id/addButtonBack"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="2dp"
             android:layout_weight="1"
-            android:text="Back" />
+            android:text="@string/addButtonBack" />
     </LinearLayout>
 
 </LinearLayout>
