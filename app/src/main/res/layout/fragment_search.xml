@@ -4,42 +4,46 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".DeleteFragment">
+    tools:context=".SearchFragment">
 
     <LinearLayout
-        android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
 
-        <Button
-            android:id="@+id/deleteButtonDeleteAll"
+
+        <Spinner
+            android:id="@+id/fieldSpinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_margin="2dp"
-            android:text="All" />
+            android:layout_weight="1"/>
 
-        <Button
-            android:id="@+id/deleteButtonDeleteChecked"
+        <Spinner
+            android:id="@+id/operatorSpinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_margin="2dp"
-            android:text="Checked" />
+            android:layout_weight="1"/>
 
-        <Button
-            android:id="@+id/deleteButtonDeleteUnchecked"
+        <EditText
+            android:id="@+id/editTextValue"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_margin="2dp"
-            android:text="Unchecked" />
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:layout_weight="1"/>
 
     </LinearLayout>
 
+    <Button
+        android:id="@+id/searchButtonSearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Search" />
+
     <ListView
-        android:id="@+id/deleteListView"
+        android:id="@+id/searchListView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
 
 </LinearLayout>

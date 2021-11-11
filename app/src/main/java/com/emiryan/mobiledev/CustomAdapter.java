@@ -22,7 +22,8 @@ public class CustomAdapter extends ArrayAdapter {
     private List<Student> objects;
     private ListView listView;
 
-    public CustomAdapter(@NonNull Context context, int resource, @NonNull List<Student> objects, ListView listView) {
+    public CustomAdapter(@NonNull Context context, int resource, @NonNull List<Student> objects,
+                         ListView listView) {
         super(context, resource, objects);
         this.inflater = LayoutInflater.from(context);
         this.context = context;
@@ -47,7 +48,7 @@ public class CustomAdapter extends ArrayAdapter {
         textViewName.setText(object.getName());
         textViewChecked.setText(Boolean.toString(object.isChecked()));
 
-        if(parsedList.indexOfKey(position) >= 0) {
+        if(parsedList != null && parsedList.indexOfKey(position) >= 0) {
             if(parsedList.get(position)) {
                 imageView.setImageResource(R.drawable.no);
             } else {

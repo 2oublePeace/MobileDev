@@ -64,4 +64,11 @@ public class MainActivity extends AppCompatActivity {
                 .replace(R.id.fragmentContainerView, EditFragment.class, null)
                 .commit();
     }
+
+    public void buttonSearch(View view) {
+        getSupportFragmentManager().beginTransaction()
+                .setReorderingAllowed(true)
+                .replace(R.id.fragmentContainerView, SearchFragment.class, null)
+                .commit();
+    }
 }
