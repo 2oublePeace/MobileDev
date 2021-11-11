@@ -55,7 +55,8 @@ public class SearchFragment extends Fragment {
 
 
             switch (operation) {
-                case "Contains" :
+                case "Equals" :
+                    adapter.clear();
                     Field privateStringField = null;
                     try {
                         privateStringField = Student.class.getDeclaredField(field.toLowerCase());
@@ -68,7 +69,52 @@ public class SearchFragment extends Fragment {
                         try {
                             String value = privateStringField.get(student).toString();
                             String searchValue = editText.getText().toString();
-                            if(!searchValue.isEmpty() && value.contains(searchValue)) {
+                            if(!searchValue.isEmpty() && value.compareTo(searchValue) == 0) {
+                                adapter.add(student);
+                            }
+                        } catch (IllegalAccessException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    break;
+
+                case "Greater" :
+                    adapter.clear();
+                    privateStringField = null;
+                    try {
+                        privateStringField = Student.class.getDeclaredField(field.toLowerCase());
+                    } catch (NoSuchFieldException e) {
+                        e.printStackTrace();
+                    }
+                    privateStringField.setAccessible(true);
+
+                    for(Student student : list) {
+                        try {
+                            String value = privateStringField.get(student).toString();
+                            String searchValue = editText.getText().toString();
+                            if(!searchValue.isEmpty() && value.compareTo(searchValue) > 0) {
+                                adapter.add(student);
+                            }
+                        } catch (IllegalAccessException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    break;
+                case "Less" :
+                    adapter.clear();
+                    privateStringField = null;
+                    try {
+                        privateStringField = Student.class.getDeclaredField(field.toLowerCase());
+                    } catch (NoSuchFieldException e) {
+                        e.printStackTrace();
+                    }
+                    privateStringField.setAccessible(true);
+
+                    for(Student student : list) {
+                        try {
+                            String value = privateStringField.get(student).toString();
+                            String searchValue = editText.getText().toString();
+                            if(!searchValue.isEmpty() && value.compareTo(searchValue) < 0) {
                                 adapter.add(student);
                             }
                         } catch (IllegalAccessException e) {
@@ -84,7 +130,7 @@ public class SearchFragment extends Fragment {
         field = "";
 
         String[] fields = { "Name", "Age", "Checked"};
-        String[] operators = { "Contains", "Greater", "Less"};
+        String[] operators = { "Equals", "Greater", "Less"};
 
         list = ServiceLocator.getInstance().getListStudents();
         filteredList = new ArrayList<>();
