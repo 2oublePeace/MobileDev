@@ -13,4 +13,5 @@
     <string name="mainButtonAdd">Добавить</string>
     <string name="mainButtonDelete">Удалить</string>
     <string name="mainButtonSearch">Поиск</string>
+    <string name="mainButtonEdit">Edit</string>
 </resources>

@@ -27,16 +27,26 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_margin="2dp"
-            android:onClick="addText"
+            android:onClick="buttonAdd"
             android:text="@string/mainButtonAdd" />
 
         <Button
             android:id="@+id/buttonDelete"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_margin="2dp"
+            android:layout_weight="1"
+            android:onClick="buttonDelete"
             android:text="@string/mainButtonDelete" />
+
+        <Button
+            android:id="@+id/buttonEdit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:layout_weight="1"
+            android:onClick="buttonEdit"
+            android:text="@string/mainButtonEdit" />
 
         <Button
             android:id="@+id/buttonSearch"

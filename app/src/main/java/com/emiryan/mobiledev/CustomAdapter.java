@@ -20,13 +20,15 @@ public class CustomAdapter extends ArrayAdapter {
     private Context context;
     private int resource;
     private List<Student> objects;
+    private ListView listView;
 
-    public CustomAdapter(@NonNull Context context, int resource, @NonNull List<Student> objects) {
+    public CustomAdapter(@NonNull Context context, int resource, @NonNull List<Student> objects, ListView listView) {
         super(context, resource, objects);
         this.inflater = LayoutInflater.from(context);
         this.context = context;
         this.resource = resource;
         this.objects = objects;
+        this.listView = listView;
     }
 
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -37,7 +39,6 @@ public class CustomAdapter extends ArrayAdapter {
         TextView textViewName = view.findViewById(R.id.textViewName);
         TextView textViewAge = view.findViewById(R.id.textViewAge);
         TextView textViewChecked = view.findViewById(R.id.textViewChecked);
-        ListView listView = ((Activity) context).findViewById(R.id.listView);
         SparseBooleanArray parsedList = listView.getCheckedItemPositions();
 
         Student object = objects.get(position);

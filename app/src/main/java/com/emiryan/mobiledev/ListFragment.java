@@ -30,6 +30,6 @@ public class ListFragment extends Fragment {
     private void initialize(View view) {
         listView = view.findViewById(R.id.listView);
         customAdapter = new CustomAdapter(view.getContext(), R.layout.list_item,
-                ServiceLocator.getInstance().getListStudents());
+                ServiceLocator.getInstance().getListStudents(), listView);
     }
 }

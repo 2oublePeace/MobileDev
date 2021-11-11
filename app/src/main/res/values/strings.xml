@@ -13,4 +13,7 @@
     <string name="mainButtonAdd">Add</string>
     <string name="mainButtonDelete">Delete</string>
     <string name="mainButtonSearch">Search</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="mainButtonEdit">Edit</string>
 </resources>

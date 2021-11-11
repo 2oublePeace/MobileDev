@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
                 .commit();
     }
 
-    public void addText(View view) {
+    public void buttonAdd(View view) {
         getSupportFragmentManager().beginTransaction()
                 .setReorderingAllowed(true)
                 .replace(R.id.fragmentContainerView, AddFragment.class, null)
@@ -40,5 +40,28 @@ public class MainActivity extends AppCompatActivity {
                 ServiceLocator.getInstance().setListStudents(listStudents);
             }
         });
+    }
+
+    public void buttonDelete(View view) {
+        getSupportFragmentManager().beginTransaction()
+                .setReorderingAllowed(true)
+                .replace(R.id.fragmentContainerView, DeleteFragment.class, null)
+                .commit();
+
+        getSupportFragmentManager().setFragmentResultListener("studentKey", this, new FragmentResultListener() {
+            @Override
+            public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle bundle) {
+                Student student = (Student) bundle.getSerializable("studentKey");
+                listStudents.add(student);
+                ServiceLocator.getInstance().setListStudents(listStudents);
+            }
+        });
+    }
+
+    public void buttonEdit(View view) {
+        getSupportFragmentManager().beginTransaction()
+                .setReorderingAllowed(true)
+                .replace(R.id.fragmentContainerView, EditFragment.class, null)
+                .commit();
     }
 }
