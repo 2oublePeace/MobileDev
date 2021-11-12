@@ -43,7 +43,7 @@ public class CustomAdapter<T> extends ArrayAdapter<T> {
         textView.setText(object.toString());
         textView.setTextSize(36);
 
-        if(position == parsedList.keyAt(position) && parsedList.get(position) == true) {
+        if(position == parsedList.keyAt(position) && parsedList.get(position)) {
             imageView.setImageResource(R.drawable.yes);
         } else {
             imageView.setImageResource(R.drawable.no);
