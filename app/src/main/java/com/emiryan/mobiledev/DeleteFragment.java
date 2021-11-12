@@ -39,7 +39,9 @@ public class DeleteFragment extends Fragment {
         buttonDeleteChecked.setOnClickListener(v -> {
             SparseBooleanArray parsedList = deleteListView.getCheckedItemPositions();
             for(int i = parsedList.size() - 1; i >= 0; i--) {
-                customAdapter.remove(customAdapter.getItem(parsedList.keyAt(i)));
+                if(parsedList.valueAt(i)) {
+                    customAdapter.remove(customAdapter.getItem(parsedList.keyAt(i)));
+                }
             }
 
             for(int i = 0; i < deleteListView.getCount(); i++) {
@@ -52,6 +54,8 @@ public class DeleteFragment extends Fragment {
 
             for(int i = deleteListView.getCount() - 1; i >= 0; i--) {
                 if(parsedList.indexOfKey(i) < 0) {
+                    customAdapter.remove(customAdapter.getItem(i));
+                } else if (!parsedList.valueAt(i)) {
                     customAdapter.remove(customAdapter.getItem(i));
                 }
             }
