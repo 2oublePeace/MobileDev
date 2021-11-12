@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">Мобильная разработка</string>
     <string name="add_button">Добавить</string>
-    <string name="buttonSelectAll">Выбрать/nвсе</string>
-    <string name="buttonUnselectAll">Сбросить/nвсе</string>
+    <string name="buttonSelectAll">Выбрать\nвсе</string>
+    <string name="buttonUnselectAll">Сбросить\nвсе</string>
     <string name="buttonToast">Тост</string>
 </resources>
