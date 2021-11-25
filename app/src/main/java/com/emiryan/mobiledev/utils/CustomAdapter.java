@@ -13,7 +13,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 
 import com.emiryan.mobiledev.R;
-import com.emiryan.mobiledev.entity.Student;
+import com.emiryan.mobiledev.entities.Student;
 
 import java.util.List;
 

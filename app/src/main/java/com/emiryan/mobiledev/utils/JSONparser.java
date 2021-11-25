@@ -3,7 +3,7 @@ package com.emiryan.mobiledev.utils;
 import android.content.Context;
 
 import com.emiryan.mobiledev.R;
-import com.emiryan.mobiledev.entity.Student;
+import com.emiryan.mobiledev.entities.Student;
 
 import org.json.JSONArray;
 import org.json.JSONException;

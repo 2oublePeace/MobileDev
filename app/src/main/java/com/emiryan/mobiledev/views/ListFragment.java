@@ -1,4 +1,4 @@
-package com.emiryan.mobiledev.view;
+package com.emiryan.mobiledev.views;
 
 import android.os.Bundle;
 import android.view.View;

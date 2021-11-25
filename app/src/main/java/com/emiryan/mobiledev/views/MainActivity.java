@@ -1,4 +1,4 @@
-package com.emiryan.mobiledev.view;
+package com.emiryan.mobiledev.views;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,7 +10,7 @@ import android.view.View;
 import com.emiryan.mobiledev.R;
 import com.emiryan.mobiledev.utils.MyFormatParser;
 import com.emiryan.mobiledev.utils.ServiceLocator;
-import com.emiryan.mobiledev.entity.Student;
+import com.emiryan.mobiledev.entities.Student;
 import com.emiryan.mobiledev.utils.JSONparser;
 
 import java.util.List;

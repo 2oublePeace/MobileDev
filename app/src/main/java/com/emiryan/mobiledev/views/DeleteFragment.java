@@ -1,4 +1,4 @@
-package com.emiryan.mobiledev.view;
+package com.emiryan.mobiledev.views;
 
 import android.os.Bundle;
 import android.util.SparseBooleanArray;
@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment;
 import com.emiryan.mobiledev.utils.CustomAdapter;
 import com.emiryan.mobiledev.R;
 import com.emiryan.mobiledev.utils.ServiceLocator;
-import com.emiryan.mobiledev.entity.Student;
+import com.emiryan.mobiledev.entities.Student;
 
 import java.util.List;
 

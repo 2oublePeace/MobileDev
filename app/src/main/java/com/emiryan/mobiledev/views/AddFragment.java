@@ -1,4 +1,4 @@
-package com.emiryan.mobiledev.view;
+package com.emiryan.mobiledev.views;
 
 import android.os.Bundle;
 import android.view.View;
@@ -11,7 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.emiryan.mobiledev.R;
-import com.emiryan.mobiledev.entity.Student;
+import com.emiryan.mobiledev.entities.Student;
 
 public class AddFragment extends Fragment {
 

@@ -1,4 +1,4 @@
-package com.emiryan.mobiledev.entity;
+package com.emiryan.mobiledev.entities;
 
 import java.io.Serializable;
 

@@ -1,4 +1,4 @@
-package com.emiryan.mobiledev.view;
+package com.emiryan.mobiledev.views;
 
 import android.os.Bundle;
 
@@ -15,7 +15,7 @@ import android.widget.Spinner;
 import com.emiryan.mobiledev.utils.CustomAdapter;
 import com.emiryan.mobiledev.R;
 import com.emiryan.mobiledev.utils.ServiceLocator;
-import com.emiryan.mobiledev.entity.Student;
+import com.emiryan.mobiledev.entities.Student;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;

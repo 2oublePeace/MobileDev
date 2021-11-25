@@ -1,6 +1,6 @@
 package com.emiryan.mobiledev.utils;
 
-import com.emiryan.mobiledev.entity.Student;
+import com.emiryan.mobiledev.entities.Student;
 
 import java.util.ArrayList;
 import java.util.List;
