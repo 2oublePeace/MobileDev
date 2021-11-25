@@ -43,7 +43,7 @@
         android:id="@+id/editButtonEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Edit element" />
+        android:text="@string/editButtonEdit" />
 
     <ListView
         android:id="@+id/editListView"

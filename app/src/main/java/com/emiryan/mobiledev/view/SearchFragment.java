@@ -42,18 +42,6 @@ public class SearchFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         initialize(view);
 
-       /* fieldSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            public void onItemSelected(AdapterView<?> parent,
-                                       View itemSelected, int selectedItemPosition, long selectedId) {
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });*/
-
         buttonSearch.setOnClickListener(v -> {
             field = fieldSpinner.getSelectedItem().toString();
             operation = operatorSpinner.getSelectedItem().toString();

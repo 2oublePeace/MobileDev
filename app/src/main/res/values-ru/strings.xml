@@ -13,5 +13,17 @@
     <string name="mainButtonAdd">Добавить</string>
     <string name="mainButtonDelete">Удалить</string>
     <string name="mainButtonSearch">Поиск</string>
-    <string name="mainButtonEdit">Edit</string>
+    <string name="mainButtonEdit">Изменить</string>
+
+    <!-- Delete fragment -->
+    <string name="deleteButtonDeleteAll">Все</string>
+    <string name="deleteButtonDeleteChecked">Выделенные</string>
+    <string name="deleteButtonDeleteUnchecked">Невыделенные</string>
+
+
+    <!-- Edit fragment -->
+    <string name="editButtonEdit">Изменить элемент</string>
+
+    <!-- Search fragment -->
+    <string name="searchButtonSearch">Поиск</string>
 </resources>
