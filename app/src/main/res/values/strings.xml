@@ -25,4 +25,5 @@
 
     <!-- Search fragment -->
     <string name="searchButtonSearch">Search</string>
+    <string name="buttonLoadJSON">JSON</string>
 </resources>

@@ -13,6 +13,7 @@ import com.emiryan.mobiledev.utils.ServiceLocator;
 import com.emiryan.mobiledev.entities.Student;
 import com.emiryan.mobiledev.utils.JSONparser;
 
+import java.io.Serializable;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -24,12 +25,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         LoadData();
-        MyFormatParser.saveData(this, ServiceLocator.getInstance().getListStudents());
-
-        getSupportFragmentManager().beginTransaction()
-                .setReorderingAllowed(true)
-                .add(R.id.fragmentContainerView, ListFragment.class, null)
-                .commit();
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction()
+                    .setReorderingAllowed(true)
+                    .add(R.id.fragmentContainerView, ListFragment.class, null)
+                    .commit();
+        }
     }
 
     @Override
@@ -89,8 +90,11 @@ public class MainActivity extends AppCompatActivity {
         listStudents = ServiceLocator.getInstance().getListStudents();
     }
 
-    private void LoadJSONData() {
+    public void LoadJSONData(View view) {
         ServiceLocator.getInstance().setListStudents(JSONparser.loadData(this));
         listStudents = ServiceLocator.getInstance().getListStudents();
+        Bundle listStudentBundle = new Bundle();
+        listStudentBundle.putSerializable("listStudentsKey", (Serializable) listStudents);
+        getSupportFragmentManager().setFragmentResult("listStudentsKey", listStudentBundle);
     }
 }

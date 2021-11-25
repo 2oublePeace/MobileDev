@@ -13,13 +13,21 @@
         android:id="@+id/fragmentContainerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="0.2"/>
+        android:layout_weight="0.25"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:orientation="vertical">
+
+        <Button
+            android:id="@+id/buttonloadJSON"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:onClick="LoadJSONData"
+            android:text="@string/buttonLoadJSON" />
 
         <LinearLayout
             android:layout_width="match_parent"
