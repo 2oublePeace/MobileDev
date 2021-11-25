@@ -14,6 +14,8 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
+    final String LOG_TAG = "myLogs";
+    int cnt = 0;
     EditText editTextName;
     ListView listView;
     ArrayList<String> list;
