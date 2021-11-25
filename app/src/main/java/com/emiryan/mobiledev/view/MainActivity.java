@@ -1,4 +1,4 @@
-package com.emiryan.mobiledev;
+package com.emiryan.mobiledev.view;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -6,6 +6,12 @@ import androidx.fragment.app.FragmentResultListener;
 
 import android.os.Bundle;
 import android.view.View;
+
+import com.emiryan.mobiledev.R;
+import com.emiryan.mobiledev.utils.MyFormatParser;
+import com.emiryan.mobiledev.utils.ServiceLocator;
+import com.emiryan.mobiledev.entity.Student;
+import com.emiryan.mobiledev.utils.JSONparser;
 
 import java.util.List;
 
@@ -17,13 +23,19 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        listStudents = ServiceLocator.getInstance().getListStudents();
+        LoadData();
+        MyFormatParser.saveData(this, ServiceLocator.getInstance().getListStudents());
 
         getSupportFragmentManager().beginTransaction()
                 .setReorderingAllowed(true)
                 .add(R.id.fragmentContainerView, ListFragment.class, null)
                 .commit();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        MyFormatParser.saveData(this, ServiceLocator.getInstance().getListStudents());
     }
 
     public void buttonAdd(View view) {
@@ -70,5 +82,15 @@ public class MainActivity extends AppCompatActivity {
                 .setReorderingAllowed(true)
                 .replace(R.id.fragmentContainerView, SearchFragment.class, null)
                 .commit();
+    }
+
+    private void LoadData() {
+        ServiceLocator.getInstance().setListStudents(MyFormatParser.loadData(this));
+        listStudents = ServiceLocator.getInstance().getListStudents();
+    }
+
+    private void LoadJSONData() {
+        ServiceLocator.getInstance().setListStudents(JSONparser.loadData(this));
+        listStudents = ServiceLocator.getInstance().getListStudents();
     }
 }

@@ -1,9 +1,8 @@
-package com.emiryan.mobiledev;
+package com.emiryan.mobiledev.utils;
 
-import android.widget.ListView;
+import com.emiryan.mobiledev.entity.Student;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 public class ServiceLocator {

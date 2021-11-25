@@ -1,4 +1,4 @@
-package com.emiryan.mobiledev;
+package com.emiryan.mobiledev.view;
 
 import android.os.Bundle;
 import android.view.View;
@@ -6,6 +6,10 @@ import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+
+import com.emiryan.mobiledev.utils.CustomAdapter;
+import com.emiryan.mobiledev.R;
+import com.emiryan.mobiledev.utils.ServiceLocator;
 
 public class ListFragment extends Fragment {
 

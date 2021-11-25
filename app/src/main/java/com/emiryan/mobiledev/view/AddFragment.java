@@ -1,4 +1,4 @@
-package com.emiryan.mobiledev;
+package com.emiryan.mobiledev.view;
 
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +9,9 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+
+import com.emiryan.mobiledev.R;
+import com.emiryan.mobiledev.entity.Student;
 
 public class AddFragment extends Fragment {
 

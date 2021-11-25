@@ -1,6 +1,5 @@
-package com.emiryan.mobiledev;
+package com.emiryan.mobiledev.utils;
 
-import android.app.Activity;
 import android.content.Context;
 import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
@@ -12,6 +11,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+
+import com.emiryan.mobiledev.R;
+import com.emiryan.mobiledev.entity.Student;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.emiryan.mobiledev;
+package com.emiryan.mobiledev.view;
 
 import android.os.Bundle;
 
@@ -11,6 +11,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
+
+import com.emiryan.mobiledev.utils.CustomAdapter;
+import com.emiryan.mobiledev.R;
+import com.emiryan.mobiledev.utils.ServiceLocator;
+import com.emiryan.mobiledev.entity.Student;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
