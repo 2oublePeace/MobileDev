@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentResultListener;
 import android.os.Bundle;
 import android.view.View;
 
+import java.io.Serializable;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -18,12 +19,25 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        if(savedInstanceState != null) {
+            ServiceLocator.getInstance().setListStudents(
+                    (List<Student>) savedInstanceState.getSerializable("list"));
+        }
+
         listStudents = ServiceLocator.getInstance().getListStudents();
 
-        getSupportFragmentManager().beginTransaction()
-                .setReorderingAllowed(true)
-                .add(R.id.fragmentContainerView, ListFragment.class, null)
-                .commit();
+        if(savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction()
+                    .setReorderingAllowed(true)
+                    .add(R.id.fragmentContainerView, ListFragment.class, null)
+                    .commit();
+        }
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putSerializable("list", (Serializable) listStudents);
     }
 
     public void buttonAdd(View view) {
