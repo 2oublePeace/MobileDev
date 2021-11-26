@@ -21,13 +21,31 @@
         android:layout_weight="1"
         android:orientation="vertical">
 
-        <Button
-            android:id="@+id/buttonloadJSON"
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:onClick="LoadJSONData"
-            android:text="@string/buttonLoadJSON" />
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/buttonloadJSON"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="2dp"
+                android:onClick="LoadJSONData"
+                android:text="@string/buttonLoadJSON" />
+
+            <Button
+                android:id="@+id/buttonSettings"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:onClick="setPreferences"
+                android:text="@string/settings" />
+        </LinearLayout>
+
 
         <LinearLayout
             android:layout_width="match_parent"

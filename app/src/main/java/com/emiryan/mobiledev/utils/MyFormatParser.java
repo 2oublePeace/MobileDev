@@ -28,6 +28,7 @@ public class MyFormatParser {
         writeData(context, data);
     }
 
+
     public static void writeData(Context context, String data) {
         FileOutputStream fos = null;
         try {
