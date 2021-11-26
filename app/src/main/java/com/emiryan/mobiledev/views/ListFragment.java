@@ -35,12 +35,6 @@ public class ListFragment extends Fragment {
 
         initialize(view);
 
-        listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
-        listView.setAdapter(customAdapter);
-        listView.setOnItemClickListener(
-                (parent, v, position, id) -> customAdapter.notifyDataSetChanged()
-        );
-
         getParentFragmentManager().setFragmentResultListener("listStudentsKey", this, new FragmentResultListener() {
             @Override
             public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle bundle) {
@@ -60,12 +54,14 @@ public class ListFragment extends Fragment {
 
     private void initialize(View view) {
         listView = view.findViewById(R.id.listView);
+
+        customAdapter = new CustomAdapter(view.getContext(), R.layout.list_item,
+                ServiceLocator.getInstance().getListStudents(), listView);
+
         listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
         listView.setAdapter(customAdapter);
         listView.setOnItemClickListener(
                 (parent, v, position, id) -> customAdapter.notifyDataSetChanged()
         );
-        customAdapter = new CustomAdapter(view.getContext(), R.layout.list_item,
-                ServiceLocator.getInstance().getListStudents(), listView);
     }
 }
