@@ -1,5 +1,6 @@
 package com.emiryan.mobiledev;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -13,8 +14,10 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.Serializable;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,7 +32,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        list = new ArrayList<>();
+        if(savedInstanceState != null) {
+            list = (ArrayList<String>) savedInstanceState.getSerializable("list");
+        } else {
+            list = new ArrayList<>();
+        }
 
         editTextName = findViewById(R.id.editTextName);
 
@@ -47,6 +54,12 @@ public class MainActivity extends AppCompatActivity {
                 customAdapter.notifyDataSetChanged();
             }
         });
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putSerializable("list", list);
     }
 
     public void addText(View view) {
