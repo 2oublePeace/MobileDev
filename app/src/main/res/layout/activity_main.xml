@@ -37,36 +37,35 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:layout_weight="1">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
 
         <Button
-            android:id="@+id/button1"
+            android:id="@+id/selectAll"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="2dp"
             android:layout_weight="1"
+            android:layout_marginHorizontal="2dp"
             android:onClick="selectAll"
-            android:text="Button" />
+            android:text="@string/buttonSelectAll" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/buttonUnselectAll"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="2dp"
             android:layout_weight="1"
+            android:layout_marginHorizontal="2dp"
             android:onClick="resetAll"
-            android:text="Button" />
+            android:text="@string/buttonUnselectAll" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/buttonToast"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="2dp"
             android:layout_weight="1"
+            android:layout_marginHorizontal="2dp"
             android:onClick="printSelectedItems"
-            android:text="Button" />
+            android:text="@string/buttonToast" />
 
     </LinearLayout>
 
