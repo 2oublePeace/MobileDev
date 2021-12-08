@@ -18,6 +18,7 @@ import com.emiryan.mobiledev.utils.ServiceLocator;
 import com.emiryan.mobiledev.entities.Student;
 import com.emiryan.mobiledev.utils.JSONparser;
 
+import java.util.LinkedList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -30,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         SharedPreferences prefs= PreferenceManager.getDefaultSharedPreferences(this);
         enabledDB = prefs.getBoolean("enabled", false);
+        List<String> listTemp = new LinkedList<>();
+
 
         if(enabledDB) {
             LoadDBData();
