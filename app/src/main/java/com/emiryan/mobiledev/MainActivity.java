@@ -5,12 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentResultListener;
 
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 
 import java.io.Serializable;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnTouchListener {
 
     List<Student> listStudents;
 
@@ -84,5 +85,11 @@ public class MainActivity extends AppCompatActivity {
                 .setReorderingAllowed(true)
                 .replace(R.id.fragmentContainerView, SearchFragment.class, null)
                 .commit();
+    }
+
+    @Override
+    public boolean onTouch(View v, MotionEvent event) {
+        System.out.println(event.getX() + " " + event.getY());
+        return true;
     }
 }
