@@ -13,5 +13,13 @@ public class DatabaseService extends Service {
         throw new UnsupportedOperationException("Not yet implemented");
     }
 
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        return super.onStartCommand(intent, flags, startId);
+    }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+    }
 }
