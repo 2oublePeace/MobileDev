@@ -35,12 +35,8 @@ public class ListFragment extends Fragment {
 
         initialize(view);
 
-        getParentFragmentManager().setFragmentResultListener("listStudentsKey", this, new FragmentResultListener() {
-            @Override
-            public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle bundle) {
-                initialize(view);
-            }
-        });
+        getParentFragmentManager().setFragmentResultListener("listStudentsKey", this,
+                (requestKey, bundle) -> initialize(view));
     }
 
     @Override

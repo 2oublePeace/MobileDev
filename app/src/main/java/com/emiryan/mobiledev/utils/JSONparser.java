@@ -23,7 +23,6 @@ public class JSONparser {
         try {
             String jsonText = readJSON(context, R.raw.students);
             JSONObject jsonRoot = new JSONObject(jsonText);
-
             JSONArray arrayStudents = jsonRoot.getJSONArray("root");
 
             for(int i = 0; i < arrayStudents.length(); i++) {
@@ -36,6 +35,7 @@ public class JSONparser {
         } catch (IOException | JSONException e) {
             e.printStackTrace();
         }
+
         return listStudents;
     }
 
@@ -44,10 +44,12 @@ public class JSONparser {
         BufferedReader br= new BufferedReader(new InputStreamReader(is));
         StringBuilder sb= new StringBuilder();
         String s = null;
+
         while((s = br.readLine()) != null) {
             sb.append(s);
             sb.append("\n");
         }
+
         return sb.toString();
     }
 }

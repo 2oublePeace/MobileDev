@@ -15,7 +15,7 @@ public class DBparser {
     public static List<Student> loadData(Context context) {
         DatabaseHelper databaseHelper = new DatabaseHelper(context.getApplicationContext());
         SQLiteDatabase db = databaseHelper.getReadableDatabase();
-        Cursor cursor =  db.rawQuery("select * from "+ DatabaseHelper.TABLE, null);
+        Cursor cursor = db.rawQuery("select * from "+ DatabaseHelper.TABLE, null);
 
         List<Student> students = new ArrayList<>();
         cursor.moveToFirst();
@@ -39,14 +39,17 @@ public class DBparser {
         db.execSQL("delete from " + DatabaseHelper.TABLE);
 
         for(Student student : students) {
-            db.execSQL("INSERT INTO "+ DatabaseHelper.TABLE + " (" +
+            db.execSQL(
+                "INSERT INTO " + DatabaseHelper.TABLE + " (" +
                     DatabaseHelper.COLUMN_NAME + ", " +
                     DatabaseHelper.COLUMN_AGE  + ", " +
-                    DatabaseHelper.COLUMN_CHECKED + ") " +
-                    "VALUES ('"+student.getName()+
-                    "', "+student.getAge()+
-                    ", '"+ student.isChecked() +"');");
+                    DatabaseHelper.COLUMN_CHECKED +
+                ") " +
+                "VALUES ('" + student.getName() +
+                    "', " + student.getAge()+
+                    ", '" + student.isChecked() +
+                "');"
+            );
         }
-
     }
 }

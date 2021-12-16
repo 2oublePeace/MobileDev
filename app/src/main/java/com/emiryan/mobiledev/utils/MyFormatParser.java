@@ -39,13 +39,13 @@ public class MyFormatParser {
 
             Toast.makeText(context, ex.getMessage(), Toast.LENGTH_SHORT).show();
         }
-        finally{
-            try{
-                if(fos!=null)
+        finally {
+            try {
+                if(fos!=null) {
                     fos.close();
+                }
             }
             catch(IOException ex){
-
                 Toast.makeText(context, ex.getMessage(), Toast.LENGTH_SHORT).show();
             }
         }

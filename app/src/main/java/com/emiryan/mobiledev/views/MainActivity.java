@@ -2,12 +2,14 @@ package com.emiryan.mobiledev.views;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.TaskStackBuilder;
 import androidx.fragment.app.FragmentResultListener;
 import androidx.preference.PreferenceManager;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 
 import com.emiryan.mobiledev.R;
@@ -32,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences prefs= PreferenceManager.getDefaultSharedPreferences(this);
         enabledDB = prefs.getBoolean("enabled", false);
         List<String> listTemp = new LinkedList<>();
-
 
         if(enabledDB) {
             LoadDBData();
@@ -65,13 +66,10 @@ public class MainActivity extends AppCompatActivity {
                 .replace(R.id.fragmentContainerView, AddFragment.class, null)
                 .commit();
 
-        getSupportFragmentManager().setFragmentResultListener("studentKey", this, new FragmentResultListener() {
-            @Override
-            public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle bundle) {
-                Student student = (Student) bundle.getSerializable("studentKey");
-                listStudents.add(student);
-                ServiceLocator.getInstance().setListStudents(listStudents);
-            }
+        getSupportFragmentManager().setFragmentResultListener("studentKey", this, (requestKey, bundle) -> {
+            Student student = (Student) bundle.getSerializable("studentKey");
+            listStudents.add(student);
+            ServiceLocator.getInstance().setListStudents(listStudents);
         });
     }
 
@@ -81,13 +79,10 @@ public class MainActivity extends AppCompatActivity {
                 .replace(R.id.fragmentContainerView, DeleteFragment.class, null)
                 .commit();
 
-        getSupportFragmentManager().setFragmentResultListener("studentKey", this, new FragmentResultListener() {
-            @Override
-            public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle bundle) {
-                Student student = (Student) bundle.getSerializable("studentKey");
-                listStudents.add(student);
-                ServiceLocator.getInstance().setListStudents(listStudents);
-            }
+        getSupportFragmentManager().setFragmentResultListener("studentKey", this, (requestKey, bundle) -> {
+            Student student = (Student) bundle.getSerializable("studentKey");
+            listStudents.add(student);
+            ServiceLocator.getInstance().setListStudents(listStudents);
         });
     }
 
@@ -106,8 +101,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void LoadData() {
-        ServiceLocator.getInstance().setListStudents(MyFormatParser.loadData(this));
-        listStudents = ServiceLocator.getInstance().getListStudents();
+        new Thread(() -> {
+            ServiceLocator.getInstance().setListStudents(MyFormatParser.loadData(this));
+            listStudents = ServiceLocator.getInstance().getListStudents();
+        }).start();
     }
 
     private void LoadDBData() {
@@ -116,15 +113,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void LoadJSONData(View view) {
-        ServiceLocator.getInstance().setListStudents(JSONparser.loadData(this));
-        listStudents = ServiceLocator.getInstance().getListStudents();
-        getSupportFragmentManager().setFragmentResult("listStudentsKey", new Bundle());
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        new Handler().post(() -> {
+            ServiceLocator.getInstance().setListStudents(JSONparser.loadData(this));
+            listStudents = ServiceLocator.getInstance().getListStudents();
+            getSupportFragmentManager().setFragmentResult("listStudentsKey", new Bundle());
+        });
     }
 
     public void setPreferences(View view){
