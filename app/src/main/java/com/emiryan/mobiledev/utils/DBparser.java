@@ -52,4 +52,12 @@ public class DBparser {
             );
         }
     }
+
+    public static int rowCount(Context context) {
+        DatabaseHelper databaseHelper = new DatabaseHelper(context.getApplicationContext());
+        SQLiteDatabase db = databaseHelper.getReadableDatabase();
+        Cursor cursor = db.rawQuery("select * from "+ DatabaseHelper.TABLE, null);
+
+        return cursor.getCount();
+    }
 }

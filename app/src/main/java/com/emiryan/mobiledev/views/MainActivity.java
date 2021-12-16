@@ -14,29 +14,32 @@ import android.view.View;
 
 import com.emiryan.mobiledev.R;
 import com.emiryan.mobiledev.SettingsActivity;
-import com.emiryan.mobiledev.utils.DBparser;
+
+import com.emiryan.mobiledev.utils.DatabaseService;
 import com.emiryan.mobiledev.utils.MyFormatParser;
 import com.emiryan.mobiledev.utils.ServiceLocator;
 import com.emiryan.mobiledev.entities.Student;
 import com.emiryan.mobiledev.utils.JSONparser;
 
-import java.util.LinkedList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     List<Student> listStudents;
     boolean enabledDB;
+    Intent dbServiceIntent;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         SharedPreferences prefs= PreferenceManager.getDefaultSharedPreferences(this);
         enabledDB = prefs.getBoolean("enabled", false);
-        List<String> listTemp = new LinkedList<>();
+        dbServiceIntent = new Intent(this, DatabaseService.class);
 
         if(enabledDB) {
-            LoadDBData();
+            startService(dbServiceIntent);
+            listStudents = ServiceLocator.getInstance().getListStudents();
         } else {
             LoadData();
         }
@@ -54,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         super.onDestroy();
 
         if(enabledDB) {
-            DBparser.saveData(this, ServiceLocator.getInstance().getListStudents());
+            stopService(dbServiceIntent);
         } else {
             MyFormatParser.saveData(this, ServiceLocator.getInstance().getListStudents());
         }
@@ -105,11 +108,6 @@ public class MainActivity extends AppCompatActivity {
             ServiceLocator.getInstance().setListStudents(MyFormatParser.loadData(this));
             listStudents = ServiceLocator.getInstance().getListStudents();
         }).start();
-    }
-
-    private void LoadDBData() {
-        ServiceLocator.getInstance().setListStudents(DBparser.loadData(this));
-        listStudents = ServiceLocator.getInstance().getListStudents();
     }
 
     public void LoadJSONData(View view) {
